@@ -1,1 +1,38 @@
 # methane-minder
+
+
+Data Dictionary for the data received from Carbon Mapper
+
+| Column Name                   | Description                                                                 |
+|------------------------------|-----------------------------------------------------------------------------|
+| plume_id                     | Unique identifier for each detected methane plume.                         |
+| plume_latitude               | Latitude coordinate (in decimal degrees) of the plume center.              |
+| plume_longitude              | Longitude coordinate (in decimal degrees) of the plume center.             |
+| datetime                     | Timestamp of when the plume was detected (UTC).                            |
+| ipcc_sector                  | Source classification per IPCC (e.g., Energy, Waste, Agriculture).         |
+| gas                          | Type of gas detected (usually CH₄ for methane).                            |
+| emission_cmf_type           | Category of emission estimation method used (e.g., auto or manual).        |
+| plume_bounds                | Polygon boundary of the plume, often as WKT or encoded string.              |
+| instrument                   | Instrument used for detection (e.g., AVIRIS-NG, GAO, EMIT).                |
+| mission_phase               | Phase of the mission when data was collected (e.g., prototype, operational).|
+| published_at                | Date the plume record was published.                                        |
+| modified                    | Last modified timestamp of the record.                                     |
+| emission_version            | Version of the emissions estimation algorithm or dataset.                  |
+| processing_software         | Software used to process plume data.                                       |
+| gsd                         | Ground Sampling Distance in meters (spatial resolution).                   |
+| sensitivity_mode            | Sensor sensitivity setting during acquisition.                             |
+| off_nadir                   | Viewing angle off vertical, in degrees.                                    |
+| emission_auto               | Automatically estimated emission rate (e.g., kg/hr).                        |
+| emission_uncertainty_auto  | Uncertainty associated with auto emission estimate.                        |
+| wind_speed_avg_auto        | Average wind speed used (m/s).                                              |
+| wind_speed_std_auto        | Standard deviation of wind speed.                                          |
+| wind_direction_avg_auto    | Average wind direction (degrees from North).                               |
+| wind_direction_std_auto    | Standard deviation of wind direction.                                      |
+| wind_source_auto           | Wind data source (e.g., HRRR model).                                        |
+| platform                   | Platform used for data acquisition (e.g., aircraft, satellite).             |
+| provider                   | Data provider or processing organization (e.g., JPL, EDF).                 |
+| plume_tif                  | GeoTIFF file showing plume mask.                                           |
+| plume_png                  | PNG preview of plume mask.                                                 |
+| con_tif                    | Optional TIFF showing concentration or confidence.                          |
+| rgb_tif                    | RGB image composite of the plume scene.                                    |
+| rgb_png                    | PNG version of the RGB image.                                              |
