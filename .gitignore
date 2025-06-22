@@ -174,9 +174,9 @@ cython_debug/
 .abstra/
 
 # Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
+#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
+#  and can be added to the global gitignore or merged into this file. However, if you prefer,
 #  you could uncomment the following to ignore the enitre vscode folder
 # .vscode/
 
@@ -192,3 +192,112 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Backend specific (Python/FastAPI/UV)
+backend/.uv/
+backend/uv.lock
+
+# FastAPI specific
+backend/.fastapi/
+
+# Backend database files
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# Backend API keys and secrets
+backend/.env.local
+backend/.env.production
+backend/secrets/
+backend/config/secrets.py
+
+# Backend upload directories
+backend/uploads/
+backend/media/
+backend/static/uploads/
+
+# Frontend specific (Vue.js/Node.js)
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# Vue.js specific
+frontend/.nuxt/
+frontend/.output/
+frontend/.nitro/
+
+# Vite
+frontend/vite.config.js.timestamp-*
+frontend/vite.config.ts.timestamp-*
+
+# Tailwind CSS
+frontend/tailwind.config.js.timestamp-*
+frontend/tailwind.config.ts.timestamp-*
+
+# Editor directories and files
+frontend/.vscode/*
+!frontend/.vscode/extensions.json
+frontend/.idea/
+frontend/*.swp
+frontend/*.swo
+
+# OS generated files (frontend)
+frontend/.DS_Store
+frontend/Thumbs.db
+
+# Runtime data
+frontend/pids/
+frontend/*.pid
+frontend/*.seed
+frontend/*.pid.lock
+
+# Coverage directory used by tools like istanbul
+frontend/coverage/
+frontend/*.lcov
+
+# nyc test coverage
+frontend/.nyc_output/
+
+# ESLint cache
+frontend/.eslintcache
+
+# Optional npm cache directory
+frontend/.npm/
+
+# Microbundle cache
+frontend/.rpt2_cache/
+frontend/.rts2_cache_cjs/
+frontend/.rts2_cache_es/
+frontend/.rts2_cache_umd/
+
+# Optional REPL history
+frontend/.node_repl_history
+
+# Output of 'npm pack'
+frontend/*.tgz
+
+# Yarn Integrity file
+frontend/.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+frontend/.cache/
+frontend/.parcel-cache/
+
+# Next.js build output (if applicable)
+frontend/.next/
+frontend/out/
+
+# Storybook build outputs
+frontend/.out/
+frontend/.storybook-out/
+
+# Temporary folders
+frontend/tmp/
+frontend/temp/
