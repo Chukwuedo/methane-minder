@@ -9,6 +9,7 @@ dependencies = [
     "geopandas>=1.1.0",
     "pandas>=2.3.0",
     "pyarrow>=20.0.0",
+    "python-multipart>=0.0.20",
     "scikit-learn>=1.7.0",
     "shapely>=2.1.1",
     "uuid>=1.30",

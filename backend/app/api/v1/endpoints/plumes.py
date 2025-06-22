@@ -32,7 +32,7 @@ def get_plumes() -> List[Dict[str, Any]]:
             gdf = gdf.sort_values("datetime", ascending=False)
 
         output = []
-        for _, row in gdf.head(10).iterrows():
+        for _, row in gdf.head(100).iterrows():
             # Handle missing emission values properly
             emission_value = row.get("emission_auto")
             if emission_value is None or emission_value == "":
