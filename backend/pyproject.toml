@@ -12,6 +12,7 @@ dependencies = [
     "python-multipart>=0.0.20",
     "scikit-learn>=1.7.0",
     "shapely>=2.1.1",
+    "statsmodels>=0.14.4",
     "uuid>=1.30",
     "uvicorn[standard]>=0.34.3",
 ]
