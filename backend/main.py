@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from src.app.api.v1.endpoints import plumes
+from src.app.api.v1.endpoints import plumes, risk
 
 app = FastAPI(
     title="Methane Minder Backend",
@@ -18,6 +18,7 @@ app.add_middleware(
 )
 
 app.include_router(plumes.router, prefix="/v1")
+app.include_router(risk.router, prefix="/v1")
 
 
 @app.get("/")

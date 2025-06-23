@@ -4,14 +4,13 @@ from shapely.geometry import Point, box
 import uuid
 import ast
 from pathlib import Path
+from src.data import PLUMES_RAW_CSV, PLUMES_ENRICHED_PARQUET, PLUMES_GEOJSON
 
-DATA_DIR = Path(__file__).parent.parent.parent / "data"
 
 # --- Step 1: Load CSV File ---
-csv_path = DATA_DIR / "plumes_raw_data.csv"
-if not csv_path.exists():
-    raise FileNotFoundError(f"CSV file not found: {csv_path}")
-df = pd.read_csv(csv_path)
+if not PLUMES_RAW_CSV.exists():
+    raise FileNotFoundError(f"CSV file not found: {PLUMES_RAW_CSV}")
+df = pd.read_csv(PLUMES_RAW_CSV)
 
 
 # --- Step 2: Clean and Cast Columns ---
@@ -95,12 +94,14 @@ gdf = gpd.GeoDataFrame(df, geometry="geometry", crs="EPSG:4326")
 geoparquet_cols = [
     col for col in df.columns if col not in ["point_geom", "polygon_geom"]
 ]
-geoparquet_output_path = DATA_DIR / "plumes_enriched.parquet"
+geoparquet_output_path = PLUMES_ENRICHED_PARQUET
+
 gdf[geoparquet_cols].to_parquet(geoparquet_output_path, index=False)
 print(f"GeoParquet export complete: {geoparquet_output_path}")
 
 # Save to GeoJSON (with simplified fields to avoid nested JSON issues)
-geojson_output_path = DATA_DIR / "plumes.geojson"
+geojson_output_path = PLUMES_GEOJSON
+
 geojson_cols = [col for col in df.columns if col not in ["point_geom", "polygon_geom"]]
 gdf[geojson_cols].to_file(geojson_output_path, driver="GeoJSON")
 print(f"GeoJSON export complete: {geojson_output_path}")

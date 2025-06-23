@@ -1,13 +1,11 @@
 from fastapi import APIRouter, HTTPException
 import geopandas as gpd
-from pathlib import Path
 from typing import List, Dict, Any
 import logging
+from src.data import PLUMES_GEOJSON
 
 router = APIRouter()
-DATA_DIR = Path(__file__).parent.parent.parent.parent.parent / "data"
-
-PLUMES_GEOJSON_PATH = DATA_DIR / "plumes.geojson"
+PLUMES_GEOJSON_PATH = PLUMES_GEOJSON
 
 
 @router.get("/plumes/latest")
