@@ -1,11 +1,16 @@
 <template>
-  <div class="min-h-screen bg-base-200" data-theme="corporate">
-    <div class="h-screen w-screen">
-      <MapView />
-    </div>
+  <div class="flex flex-col min-h-screen max-w-screen-xl bg-base-200 " :data-theme="theme">
+    <Dashboard @toggle-theme="toggleTheme" :theme="theme" />
   </div>
 </template>
 
 <script setup lang="ts">
-import MapView from './components/MapView.vue'
+import { ref } from 'vue'
+import Dashboard from './components/Dashboard.vue'
+
+const theme = ref('accenture-dark')
+
+function toggleTheme() {
+  theme.value = theme.value === 'accenture-dark' ? 'accenture-light' : 'accenture-dark'
+}
 </script>

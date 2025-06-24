@@ -1,36 +1,72 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+@plugin "daisyui/theme" {
+  name: "accenture-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0 0);
+  --color-base-200: oklch(95% 0 0);
+  --color-base-300: oklch(90% 0 0);
+  --color-base-content: oklch(20% 0 0);
+  --color-primary: oklch(49% 0.265 301.924);
+  --color-primary-content: oklch(98% 0 0);
+  --color-secondary: oklch(38% 0.189 293.745);
+  --color-secondary-content: oklch(98% 0 0);
+  --color-accent: oklch(70% 0.25 278);
+  --color-accent-content: oklch(20% 0 0);
+  --color-neutral: oklch(43% 0.218 303.724);
+  --color-neutral-content: oklch(98% 0 0);
+  --color-info: oklch(60% 0.2 220);
+  --color-info-content: oklch(98% 0 0);
+  --color-success: oklch(70% 0.3 120);
+  --color-success-content: oklch(98% 0 0);
+  --color-warning: oklch(75% 0.3 60);
+  --color-warning-content: oklch(98% 0 0);
+  --color-error: oklch(65% 0.3 10);
+  --color-error-content: oklch(98% 0 0);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+@plugin "daisyui/theme" {
+  name: "accenture-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(15% 0 0);
+  --color-base-200: oklch(20% 0 0);
+  --color-base-300: oklch(25% 0 0);
+  --color-base-content: oklch(95% 0 0);
+  --color-primary: oklch(65% 0.35 278);
+  --color-primary-content: oklch(15% 0 0);
+  --color-secondary: oklch(30% 0.189 293.745);
+  --color-secondary-content: oklch(95% 0 0);
+  --color-accent: oklch(50% 0.25 278);
+  --color-accent-content: oklch(95% 0 0);
+  --color-neutral: oklch(30% 0.218 303.724);
+  --color-neutral-content: oklch(95% 0 0);
+  --color-info: oklch(40% 0.2 220);
+  --color-info-content: oklch(95% 0 0);
+  --color-success: oklch(50% 0.3 120);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning: oklch(75% 0.3 60);
+  --color-warning-content: oklch(95% 0 0);
+  --color-error: oklch(65% 0.3 10);
+  --color-error-content: oklch(95% 0 0);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
 }

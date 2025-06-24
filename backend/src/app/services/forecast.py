@@ -75,7 +75,7 @@ def forecast_emission(country: str) -> Dict[str, Any]:
         # Calculate risk assessment
         risk = (
             "high"
-            if forecast > baseline * 1.25
+            if forecast > baseline * 1.30
             else "medium"
             if forecast > baseline
             else "low"

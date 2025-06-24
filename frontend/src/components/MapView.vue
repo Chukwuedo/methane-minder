@@ -1,27 +1,37 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 
 interface Plume {
-    plume_id: string
-    lat: number
-    lon: number
-    emission_auto: number | null
-    emission_uncertainty: number | null
-    datetime: string
-    gas: string
-    sector: string
-    platform: string
-    provider: string
+    plume_id: string;
+    lat: number;
+    lon: number;
+    emission_auto: number | null;
+    emission_uncertainty: number | null;
+    datetime: string;
+    gas: string;
+    sector: string;
+    platform: string;
+    provider: string;
+}
+
+const props = defineProps<{ country: string }>()
+
+const countryCenters: Record<string, [number, number]> = {
+    'United States': [37.0902, -95.7129],
+    'Switzerland': [46.8182, 8.2275],
+    'Canada': [56.1304, -106.3468],
+    'Germany': [51.1657, 10.4515],
+    'France': [46.6034, 1.8883],
 }
 
 const map = ref<L.Map>()
 
 onMounted(async () => {
     try {
-        // Initialize map centered on Texas
-        map.value = L.map('map').setView([31.5, -103.5], 6)
+        // Initialize map centered on selected country or default to Texas
+        map.value = L.map('map').setView(countryCenters[props.country] || [31.5, -103.5], 6)
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map.value)
@@ -106,6 +116,12 @@ onMounted(async () => {
 
     } catch (error) {
         console.error('❌ Error loading plume data:', error)
+    }
+})
+
+watch(() => props.country, (newCountry, oldCountry) => {
+    if (map.value && countryCenters[newCountry]) {
+        map.value.flyTo(countryCenters[newCountry], 6, { animate: true, duration: 1.5 })
     }
 })
 </script>
