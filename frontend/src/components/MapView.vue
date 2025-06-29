@@ -20,7 +20,17 @@ const props = defineProps<{ country: string }>()
 
 const countryCenters: Record<string, [number, number]> = {
     'United States': [37.0902, -95.7129],
+    'United Kingdom': [55.3781, -3.4360],
     'Switzerland': [46.8182, 8.2275],
+    'Nigeria': [9.0820, 8.6753],
+    'Ghana': [7.9465, -1.0232],
+    'India': [20.5937, 78.9629],
+    'Brazil': [-14.2350, -51.9253],
+    'China': [35.8617, 104.1954],
+    'Russia': [61.5240, 105.3188],
+    'Romania': [45.9432, 24.9668],
+    'Croatia': [45.1000, 15.2000],
+    'Hungary': [47.1625, 19.5033],
     'Canada': [56.1304, -106.3468],
     'Germany': [51.1657, 10.4515],
     'France': [46.6034, 1.8883],

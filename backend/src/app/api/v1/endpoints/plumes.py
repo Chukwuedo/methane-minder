@@ -11,7 +11,7 @@ PLUMES_GEOJSON_PATH = PLUMES_GEOJSON
 @router.get("/plumes/latest")
 def get_plumes() -> List[Dict[str, Any]]:
     """
-    Get the latest 10 methane plumes with their location and emission data.
+    Get the latest methane plumes with their location and emission data.
 
     Returns:
         List of plume objects with lat, lon, emission data, and metadata
@@ -30,7 +30,7 @@ def get_plumes() -> List[Dict[str, Any]]:
             gdf = gdf.sort_values("datetime", ascending=False)
 
         output = []
-        for _, row in gdf.head(100).iterrows():
+        for _, row in gdf.head(3000).iterrows():
             # Handle missing emission values properly
             emission_value = row.get("emission_auto")
             if emission_value is None or emission_value == "":

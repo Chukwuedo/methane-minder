@@ -13,7 +13,17 @@
                     <select v-model="selectedCountry"
                         class="select select-bordered select-sm w-auto max-w-[150px] bg-white text-black">
                         <option>United States</option>
+                        <option>United Kingdom</option>
                         <option>Switzerland</option>
+                        <option>Nigeria</option>
+                        <option>Ghana</option>
+                        <option>India</option>
+                        <option>Brazil</option>
+                        <option>China</option>
+                        <option>Russia</option>
+                        <option>Romania</option>
+                        <option>Croatia</option>
+                        <option>Hungary</option>
                         <option>Canada</option>
                         <option>Germany</option>
                         <option>France</option>
