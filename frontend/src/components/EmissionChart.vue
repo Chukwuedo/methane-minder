@@ -26,7 +26,7 @@ const chartData = computed(() => {
     return {
         labels: props.years,
         datasets: [{
-            label: 'Methane Emissions (Million Mt CO2eq)',
+            label: 'Methane Emissions (Million tCO₂eq)',
             data: props.emissions,
             borderColor: 'rgba(75,192,192,1)',
             backgroundColor: 'rgba(75,192,192,0.2)',

@@ -51,18 +51,18 @@
                         <div class="card-body p-3">
                             <h4 class="text-xs font-medium text-blue-600">Forecast</h4>
                             <p class="text-sm font-bold text-blue-800">
-                                {{ riskData?.forecast?.toFixed(0) || '---' }}
+                                {{ riskData?.forecast ? (riskData.forecast / 1_000_000).toFixed(2) : '---' }} M
                             </p>
-                            <p class="text-xs text-blue-600">Projected</p>
+                            <p class="text-xs text-blue-600">t CO₂eq Projected</p>
                         </div>
                     </div>
                     <div class="card bg-base-100 shadow w-full">
                         <div class="card-body p-3">
                             <h4 class="text-xs font-medium text-green-600">Baseline</h4>
                             <p class="text-sm font-bold text-green-800">
-                                {{ riskData?.baseline?.toFixed(0) || '---' }}
+                                {{ riskData?.baseline ? (riskData.baseline / 1_000_000).toFixed(2) : '---' }} M
                             </p>
-                            <p class="text-xs text-green-600">Historical</p>
+                            <p class="text-xs text-green-600">t CO₂eq Historical</p>
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@ const chartData = ref<ChartData>({ emissions: [], years: [] })
 const fetchRiskData = async () => {
     try {
         error.value = ''
-        const response = await fetch(`http://localhost:8001/v1/risk/${selectedCountry.value}`)
+        const response = await fetch(`/v1/risk/${selectedCountry.value}`)
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
         riskData.value = await response.json()
     } catch (err) {
