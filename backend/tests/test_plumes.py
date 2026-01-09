@@ -31,7 +31,8 @@ def test_get_plumes_returns_list_or_error(client):
             assert "plume_id" in plume
             assert "lat" in plume
             assert "lon" in plume
-            assert "emission_auto" in plume or plume.get("emission_auto") is None
+            # emission_auto can be None, which is valid
+            assert "emission_auto" in plume
     elif response.status_code == 404:
         # File not found is expected in test environment
         detail = response.json().get("detail")

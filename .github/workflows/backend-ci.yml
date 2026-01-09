@@ -16,6 +16,9 @@ jobs:
   lint-and-test:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: read
+    
     defaults:
       run:
         working-directory: backend
@@ -37,7 +40,7 @@ jobs:
       - name: Install dependencies
         run: |
           uv sync
-          uv pip install pytest pytest-asyncio httpx ruff mypy
+          uv sync --group dev
       
       - name: Lint with ruff
         run: uv run ruff check .
