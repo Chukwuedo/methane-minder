@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="flex flex-col lg:flex-row h-screen w-screen bg-base-200">
         <!-- Sidebar -->
@@ -93,6 +94,7 @@
 </template>
 
 <script setup lang="ts">
+ 
 import { ref, onMounted, watch } from 'vue'
 import MapView from './MapView.vue'
 import EmissionChart from './EmissionChart.vue'
